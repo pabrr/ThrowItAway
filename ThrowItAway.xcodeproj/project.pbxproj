@@ -397,8 +397,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "
-";
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
 		C46C10BF75D83D2427F480F5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

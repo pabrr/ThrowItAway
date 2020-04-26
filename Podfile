@@ -2,6 +2,7 @@
 # platform :ios, '12.0'
 
     pod 'SnapKit', '~> 5.0.0'
+    pod 'SwiftLint'
 
 target 'ThrowItAway' do
   # Comment the next line if you don't want to use dynamic frameworks
