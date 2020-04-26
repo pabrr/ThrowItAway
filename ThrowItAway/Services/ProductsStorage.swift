@@ -73,9 +73,13 @@ final class ProductsStorage {
 
     func deleteAll() {
         guard let managedContext = managedContext else { return }
+
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Product")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+
         do {
+            try managedContext.execute(deleteRequest)
             try managedContext.save()
-            products.removeAll()
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
