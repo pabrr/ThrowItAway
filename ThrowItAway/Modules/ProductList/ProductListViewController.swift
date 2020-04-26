@@ -36,6 +36,11 @@ private extension ProductListViewController {
         navigationController?.pushViewController(viewController, animated: true)
     }
 
+    @objc
+    func showSettings() {
+
+    }
+
 }
 
 // MARK: - Private Methods
@@ -45,19 +50,36 @@ private extension ProductListViewController {
     func configureUI() {
         configureNavigationBar()
         configureTableView()
+        addFloatingButton()
     }
 
     func configureNavigationBar() {
         title = "Что нам выбросить сегодня?"
 
-        let addProductBarItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addProduct))
-        navigationItem.rightBarButtonItem = addProductBarItem
+        let settingsBarItem = UIBarButtonItem(barButtonSystemItem: .compose,
+                                              target: self,
+                                              action: #selector(showSettings))
+        navigationItem.rightBarButtonItem = settingsBarItem
     }
 
     func configureTableView() {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+    }
+
+    func addFloatingButton() {
+        let floatingButton = FloatingButton()
+        floatingButton.didSelectHandler = { [weak self] in
+            self?.addProduct()
+        }
+        view.addSubview(floatingButton)
+        floatingButton.snp.makeConstraints { make in
+            make.height.equalTo(32)
+            make.width.equalTo(32)
+            make.right.equalTo(-16)
+            make.bottomMargin.equalTo(-16)
         }
     }
 

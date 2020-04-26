@@ -14,6 +14,8 @@
 		8331B13D2455B9B000BFC82A /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B13C2455B9B000BFC82A /* UITableViewCell.swift */; };
 		8331B13F2455BD5900BFC82A /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B13E2455BD5900BFC82A /* UserDefaults.swift */; };
 		8331B1412455BE5E00BFC82A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B1402455BE5E00BFC82A /* Constants.swift */; };
+		8331B1442455C23400BFC82A /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B1432455C23400BFC82A /* FloatingButton.swift */; };
+		8331B1472455C2F300BFC82A /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B1462455C2F300BFC82A /* Closures.swift */; };
 		8365828E2455AC6C0016BB5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8365828D2455AC6C0016BB5F /* AppDelegate.swift */; };
 		836582982455AC6C0016BB5F /* ThrowItAway.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 836582962455AC6C0016BB5F /* ThrowItAway.xcdatamodeld */; };
 		8365829A2455AC6D0016BB5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 836582992455AC6D0016BB5F /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 		8331B13C2455B9B000BFC82A /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		8331B13E2455BD5900BFC82A /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		8331B1402455BE5E00BFC82A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8331B1432455C23400BFC82A /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
+		8331B1462455C2F300BFC82A /* Closures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
 		8365828A2455AC6C0016BB5F /* ThrowItAway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThrowItAway.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8365828D2455AC6C0016BB5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		836582972455AC6C0016BB5F /* ThrowItAway.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ThrowItAway.xcdatamodel; sourceTree = "<group>"; };
@@ -134,8 +138,18 @@
 		8331B1422455C1CD00BFC82A /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				8331B1432455C23400BFC82A /* FloatingButton.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		8331B1452455C2E800BFC82A /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				8331B1402455BE5E00BFC82A /* Constants.swift */,
+				8331B1462455C2F300BFC82A /* Closures.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		836582812455AC6C0016BB5F = {
@@ -168,7 +182,7 @@
 				8365829B2455AC6D0016BB5F /* LaunchScreen.storyboard */,
 				8365829E2455AC6D0016BB5F /* Info.plist */,
 				836582962455AC6C0016BB5F /* ThrowItAway.xcdatamodeld */,
-				8331B1402455BE5E00BFC82A /* Constants.swift */,
+				8331B1452455C2E800BFC82A /* Custom */,
 				8331B1422455C1CD00BFC82A /* CustomViews */,
 				8331B13B2455B99D00BFC82A /* Extensions */,
 				83B136CA2455AD3C0019515D /* Modules */,
@@ -461,10 +475,12 @@
 			files = (
 				8331B1352455B6FC00BFC82A /* ProductDetailsConfigurator.swift in Sources */,
 				8365828E2455AC6C0016BB5F /* AppDelegate.swift in Sources */,
+				8331B1442455C23400BFC82A /* FloatingButton.swift in Sources */,
 				8331B12C2455AE5700BFC82A /* ProductListViewController.swift in Sources */,
 				8331B13F2455BD5900BFC82A /* UserDefaults.swift in Sources */,
 				8331B13D2455B9B000BFC82A /* UITableViewCell.swift in Sources */,
 				836582982455AC6C0016BB5F /* ThrowItAway.xcdatamodeld in Sources */,
+				8331B1472455C2F300BFC82A /* Closures.swift in Sources */,
 				8331B12F2455B5C800BFC82A /* ProductDetailsViewController.swift in Sources */,
 				8331B1412455BE5E00BFC82A /* Constants.swift in Sources */,
 			);
