@@ -12,12 +12,6 @@ final class ProductDetailsViewController: UIViewController {
 
     // MARK: - Private Properties
 
-    var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.separatorStyle = .none
-        return tableView
-    }()
-
     var productSelector = UIPickerView()
     var datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
@@ -34,6 +28,9 @@ final class ProductDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         configureUI()
+        if let product = product {
+            configure(with: product)
+        }
     }
 
 }
@@ -76,7 +73,6 @@ private extension ProductDetailsViewController {
         view.backgroundColor = .white
 
         configureNavigationBar()
-        configureTableView()
         configureView()
     }
 
@@ -85,13 +81,6 @@ private extension ProductDetailsViewController {
 
         let rightButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveProduct))
         navigationItem.rightBarButtonItem = rightButtonItem
-    }
-
-    func configureTableView() {
-//        view.addSubview(tableView)
-//        tableView.snp.makeConstraints { make in
-//            make.edges.equalToSuperview()
-//        }
     }
 
     func configureView() {
@@ -110,6 +99,12 @@ private extension ProductDetailsViewController {
             make.left.equalToSuperview()
             make.right.equalToSuperview()
         }
+    }
+
+    func configure(with existingProduct: ProductModel) {
+        let selectedIndex = UserDefaults().defaultProducts.firstIndex(of: existingProduct.name) ?? 0
+        productSelector.selectRow(selectedIndex, inComponent: 0, animated: true)
+        datePicker.date = existingProduct.dateTill
     }
 
     func addNewProduct() {
