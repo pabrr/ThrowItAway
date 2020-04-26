@@ -70,8 +70,6 @@ private extension ProductDetailsViewController {
 private extension ProductDetailsViewController {
 
     func configureUI() {
-        view.backgroundColor = .white
-
         configureNavigationBar()
         configureView()
     }

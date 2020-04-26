@@ -10,6 +10,12 @@ import UIKit
 
 final class DefaultProductCell: UITableViewCell {
 
+    // MARK: - Constants
+
+    private enum Constants {
+        static let buttonDefaultWidth: CGFloat = 54
+    }
+
     // MARK: - Views
 
     private let nameTextField: UITextField = {
@@ -38,9 +44,7 @@ final class DefaultProductCell: UITableViewCell {
     // MARK: - Private Properties
 
     private var isEditingName: Bool {
-        get {
-            return nameTextField.isEditing
-        }
+        return nameTextField.isEditing
     }
 
     // MARK: - Init
@@ -108,24 +112,26 @@ private extension DefaultProductCell {
     func addViews() {
         addSubview(deleteProductButton)
         deleteProductButton.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
             make.right.equalTo(-16)
-            make.width.equalTo(24)
-            make.height.equalTo(24)
+            make.width.equalTo(Constants.buttonDefaultWidth)
+            make.height.equalTo(Constants.buttonDefaultWidth)
         }
 
         addSubview(editNameButton)
         editNameButton.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
             make.right.equalTo(deleteProductButton.snp.left).inset(-8)
-            make.width.equalTo(24)
-            make.height.equalTo(24)
+            make.width.equalTo(Constants.buttonDefaultWidth)
+            make.height.equalTo(Constants.buttonDefaultWidth)
         }
 
         addSubview(nameTextField)
         nameTextField.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalTo(16)
+            make.left.equalTo(24)
             make.right.equalTo(editNameButton.snp.left).inset(-16)
         }
     }
