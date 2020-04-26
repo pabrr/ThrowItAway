@@ -16,6 +16,8 @@
 		8331B1412455BE5E00BFC82A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B1402455BE5E00BFC82A /* Constants.swift */; };
 		8331B1442455C23400BFC82A /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B1432455C23400BFC82A /* FloatingButton.swift */; };
 		8331B1472455C2F300BFC82A /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B1462455C2F300BFC82A /* Closures.swift */; };
+		8331B14A2455C6CA00BFC82A /* ProductsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B1492455C6CA00BFC82A /* ProductsStorage.swift */; };
+		8331B14D2455C77900BFC82A /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B14C2455C77900BFC82A /* ProductModel.swift */; };
 		8365828E2455AC6C0016BB5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8365828D2455AC6C0016BB5F /* AppDelegate.swift */; };
 		836582982455AC6C0016BB5F /* ThrowItAway.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 836582962455AC6C0016BB5F /* ThrowItAway.xcdatamodeld */; };
 		8365829A2455AC6D0016BB5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 836582992455AC6D0016BB5F /* Assets.xcassets */; };
@@ -56,6 +58,8 @@
 		8331B1402455BE5E00BFC82A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8331B1432455C23400BFC82A /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		8331B1462455C2F300BFC82A /* Closures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
+		8331B1492455C6CA00BFC82A /* ProductsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsStorage.swift; sourceTree = "<group>"; };
+		8331B14C2455C77900BFC82A /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		8365828A2455AC6C0016BB5F /* ThrowItAway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThrowItAway.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8365828D2455AC6C0016BB5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		836582972455AC6C0016BB5F /* ThrowItAway.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ThrowItAway.xcdatamodel; sourceTree = "<group>"; };
@@ -152,6 +156,22 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
+		8331B1482455C6B600BFC82A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8331B1492455C6CA00BFC82A /* ProductsStorage.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8331B14B2455C76D00BFC82A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8331B14C2455C77900BFC82A /* ProductModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		836582812455AC6C0016BB5F = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +202,8 @@
 				8365829B2455AC6D0016BB5F /* LaunchScreen.storyboard */,
 				8365829E2455AC6D0016BB5F /* Info.plist */,
 				836582962455AC6C0016BB5F /* ThrowItAway.xcdatamodeld */,
+				8331B14B2455C76D00BFC82A /* Models */,
+				8331B1482455C6B600BFC82A /* Services */,
 				8331B1452455C2E800BFC82A /* Custom */,
 				8331B1422455C1CD00BFC82A /* CustomViews */,
 				8331B13B2455B99D00BFC82A /* Extensions */,
@@ -480,8 +502,10 @@
 				8331B13F2455BD5900BFC82A /* UserDefaults.swift in Sources */,
 				8331B13D2455B9B000BFC82A /* UITableViewCell.swift in Sources */,
 				836582982455AC6C0016BB5F /* ThrowItAway.xcdatamodeld in Sources */,
+				8331B14D2455C77900BFC82A /* ProductModel.swift in Sources */,
 				8331B1472455C2F300BFC82A /* Closures.swift in Sources */,
 				8331B12F2455B5C800BFC82A /* ProductDetailsViewController.swift in Sources */,
+				8331B14A2455C6CA00BFC82A /* ProductsStorage.swift in Sources */,
 				8331B1412455BE5E00BFC82A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -649,6 +673,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9K4APQTACP;
 				INFOPLIST_FILE = ThrowItAway/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -667,6 +692,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9K4APQTACP;
 				INFOPLIST_FILE = ThrowItAway/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

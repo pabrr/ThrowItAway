@@ -12,12 +12,6 @@ final class ProductDetailsViewController: UIViewController {
 
     // MARK: - Private Properties
 
-    var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.separatorStyle = .none
-        return tableView
-    }()
-
     var productSelector = UIPickerView()
     var datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
@@ -26,7 +20,7 @@ final class ProductDetailsViewController: UIViewController {
         return datePicker
     }()
 
-    var product: Any?
+    var product: ProductModel?
 
     // MARK: - UIViewController
 
@@ -34,6 +28,9 @@ final class ProductDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         configureUI()
+        if let product = product {
+            configure(with: product)
+        }
     }
 
 }
@@ -62,7 +59,8 @@ private extension ProductDetailsViewController {
 
     @objc
     func saveProduct() {
-
+        product == nil ? addNewProduct() : editProduct()
+        navigationController?.popViewController(animated: true)
     }
 
 }
@@ -75,7 +73,6 @@ private extension ProductDetailsViewController {
         view.backgroundColor = .white
 
         configureNavigationBar()
-        configureTableView()
         configureView()
     }
 
@@ -84,13 +81,6 @@ private extension ProductDetailsViewController {
 
         let rightButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveProduct))
         navigationItem.rightBarButtonItem = rightButtonItem
-    }
-
-    func configureTableView() {
-//        view.addSubview(tableView)
-//        tableView.snp.makeConstraints { make in
-//            make.edges.equalToSuperview()
-//        }
     }
 
     func configureView() {
@@ -109,6 +99,24 @@ private extension ProductDetailsViewController {
             make.left.equalToSuperview()
             make.right.equalToSuperview()
         }
+    }
+
+    func configure(with existingProduct: ProductModel) {
+        let selectedIndex = UserDefaults().defaultProducts.firstIndex(of: existingProduct.name) ?? 0
+        productSelector.selectRow(selectedIndex, inComponent: 0, animated: true)
+        datePicker.date = existingProduct.dateTill
+    }
+
+    func addNewProduct() {
+        let selectedProductIndex = productSelector.selectedRow(inComponent: 0)
+        let name = UserDefaults().defaultProducts[selectedProductIndex]
+        let dateTill = datePicker.date
+        let productModel = ProductModel(name: name, dateTill: dateTill)
+        ProductsStorage.shared.save(productModel)
+    }
+
+    func editProduct() {
+
     }
 
 }

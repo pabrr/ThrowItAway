@@ -10,11 +10,15 @@ import SnapKit
 
 final class ProductListViewController: UIViewController {
 
-    var tableView: UITableView = {
+    // MARK: - Private Properties
+
+    private var tableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none
         return tableView
     }()
+
+    private var products: [ProductModel] = []
 
     // MARK: - UIViewController
 
@@ -22,6 +26,33 @@ final class ProductListViewController: UIViewController {
         super.viewDidLoad()
 
         configureUI()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateData()
+    }
+
+}
+
+// MARK: - UITableView
+
+extension ProductListViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return products.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "productCell")
+        cell.textLabel?.text = products[indexPath.row].name
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let product = products[indexPath.row]
+        let viewController = ProductDetailsConfigurator().configure(with: product)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
 }
@@ -47,6 +78,11 @@ private extension ProductListViewController {
 
 private extension ProductListViewController {
 
+    func updateData() {
+        products = ProductsStorage.shared.getProducts()
+        tableView.reloadData()
+    }
+
     func configureUI() {
         configureNavigationBar()
         configureTableView()
@@ -63,6 +99,9 @@ private extension ProductListViewController {
     }
 
     func configureTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
