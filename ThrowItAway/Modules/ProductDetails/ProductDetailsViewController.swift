@@ -71,7 +71,9 @@ private extension ProductDetailsViewController {
 
     func configureUI() {
         configureNavigationBar()
-        configureView()
+        configureViews()
+
+        view.backgroundColor = traitCollection.userInterfaceStyle == .light ? .white : .black
     }
 
     func configureNavigationBar() {
@@ -81,7 +83,7 @@ private extension ProductDetailsViewController {
         navigationItem.rightBarButtonItem = rightButtonItem
     }
 
-    func configureView() {
+    func configureViews() {
         productSelector.dataSource = self
         productSelector.delegate = self
         view.addSubview(productSelector)
