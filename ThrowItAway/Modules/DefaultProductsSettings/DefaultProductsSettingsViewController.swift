@@ -18,7 +18,7 @@ final class DefaultProductsSettingsViewController: UIViewController {
         return tableView
     }()
 
-    private var defaultProducts: [String] = []
+    private var defaultProducts: [DefaultProductCellViewModel] = []
 
     // MARK: - UIViewController
 
@@ -44,13 +44,13 @@ extension DefaultProductsSettingsViewController: UITableViewDataSource, UITableV
             else {
                 return UITableViewCell()
         }
-        let defaultProduct = defaultProducts[indexPath.row]
-        cell.configure(with: defaultProduct)
+        let defaultProductViewModel = defaultProducts[indexPath.row]
+        cell.configure(with: defaultProductViewModel)
         cell.editNameHandler = { [weak self] newName in
-            self?.edit(product: defaultProduct, newName: newName)
+            self?.edit(product: defaultProductViewModel.name, newName: newName)
         }
         cell.deleteProductHandler = { [weak self] in
-            self?.delete(product: defaultProduct)
+            self?.delete(product: defaultProductViewModel.name)
         }
         return cell
     }
@@ -62,13 +62,14 @@ extension DefaultProductsSettingsViewController: UITableViewDataSource, UITableV
 private extension DefaultProductsSettingsViewController {
 
     func updateData() {
-        defaultProducts = UserDefaults().defaultProducts
+        defaultProducts = UserDefaults().defaultProducts.map { DefaultProductCellViewModel(name: $0, isEditing: false) }
         tableView.reloadData()
     }
 
     func configureUI() {
         configureNavigationBar()
         configureTableView()
+        addFloatingButton()
     }
 
     func configureNavigationBar() {
@@ -87,6 +88,18 @@ private extension DefaultProductsSettingsViewController {
         }
     }
 
+    func addFloatingButton() {
+        let floatingButton = FloatingButton()
+        floatingButton.didSelectHandler = { [weak self] in
+            self?.addNewProduct()
+        }
+        view.addSubview(floatingButton)
+        floatingButton.snp.makeConstraints { make in
+            make.right.equalTo(-16)
+            make.bottomMargin.equalTo(-16)
+        }
+    }
+
     func edit(product: String, newName: String) {
         guard let selectedIndex = UserDefaults().defaultProducts.firstIndex(of: product) else { return }
         delete(product: product, needReload: false)
@@ -98,6 +111,13 @@ private extension DefaultProductsSettingsViewController {
         guard let selectedIndex = UserDefaults().defaultProducts.firstIndex(of: product) else { return }
         UserDefaults().defaultProducts.remove(at: selectedIndex)
         needReload ? updateData() : nil
+    }
+
+    func addNewProduct() {
+        defaultProducts = UserDefaults().defaultProducts.map { DefaultProductCellViewModel(name: $0, isEditing: false) }
+        UserDefaults().defaultProducts.append("")
+        defaultProducts.append(DefaultProductCellViewModel(name: "", isEditing: true))
+        tableView.reloadData()
     }
 
 }
