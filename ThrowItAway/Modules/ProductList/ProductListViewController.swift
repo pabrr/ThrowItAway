@@ -44,8 +44,14 @@ extension ProductListViewController: UITableViewDelegate, UITableViewDataSource 
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "productCell")
-        cell.textLabel?.text = products[indexPath.row].name
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.cellId) as? ProductCell else {
+            return UITableViewCell()
+        }
+        let selectedProduct = products[indexPath.row]
+        cell.configure(with: ProductCellViewModel(name: selectedProduct.name,
+                                                  daysLeft: selectedProduct.daysLeft,
+                                                  daysLeftColor: selectedProduct.timerColor,
+                                                  dateTill: selectedProduct.finishDate))
         return cell
     }
 
@@ -103,6 +109,8 @@ private extension ProductListViewController {
     func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+
+        tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.cellId)
 
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in

@@ -20,6 +20,8 @@
 		8331B14D2455C77900BFC82A /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B14C2455C77900BFC82A /* ProductModel.swift */; };
 		8331B1502455D8D400BFC82A /* DefaultProductsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B14F2455D8D400BFC82A /* DefaultProductsSettingsViewController.swift */; };
 		8331B1522455D9E200BFC82A /* DefaultProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B1512455D9E200BFC82A /* DefaultProductCell.swift */; };
+		8331B1542455EB1900BFC82A /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B1532455EB1900BFC82A /* ProductCell.swift */; };
+		8331B1572455ECBF00BFC82A /* ProductCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B1562455ECBF00BFC82A /* ProductCellViewModel.swift */; };
 		8365828E2455AC6C0016BB5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8365828D2455AC6C0016BB5F /* AppDelegate.swift */; };
 		836582982455AC6C0016BB5F /* ThrowItAway.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 836582962455AC6C0016BB5F /* ThrowItAway.xcdatamodeld */; };
 		8365829A2455AC6D0016BB5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 836582992455AC6D0016BB5F /* Assets.xcassets */; };
@@ -64,6 +66,8 @@
 		8331B14C2455C77900BFC82A /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		8331B14F2455D8D400BFC82A /* DefaultProductsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProductsSettingsViewController.swift; sourceTree = "<group>"; };
 		8331B1512455D9E200BFC82A /* DefaultProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProductCell.swift; sourceTree = "<group>"; };
+		8331B1532455EB1900BFC82A /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		8331B1562455ECBF00BFC82A /* ProductCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellViewModel.swift; sourceTree = "<group>"; };
 		8365828A2455AC6C0016BB5F /* ThrowItAway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThrowItAway.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8365828D2455AC6C0016BB5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		836582972455AC6C0016BB5F /* ThrowItAway.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ThrowItAway.xcdatamodel; sourceTree = "<group>"; };
@@ -185,6 +189,15 @@
 			path = DefaultProductsSettings;
 			sourceTree = "<group>";
 		};
+		8331B1552455ECAE00BFC82A /* ProductCell */ = {
+			isa = PBXGroup;
+			children = (
+				8331B1532455EB1900BFC82A /* ProductCell.swift */,
+				8331B1562455ECBF00BFC82A /* ProductCellViewModel.swift */,
+			);
+			path = ProductCell;
+			sourceTree = "<group>";
+		};
 		836582812455AC6C0016BB5F = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				8331B12B2455AE5700BFC82A /* ProductListViewController.swift */,
+				8331B1552455ECAE00BFC82A /* ProductCell */,
 			);
 			path = ProductList;
 			sourceTree = "<group>";
@@ -511,6 +525,7 @@
 			files = (
 				8331B1352455B6FC00BFC82A /* ProductDetailsConfigurator.swift in Sources */,
 				8365828E2455AC6C0016BB5F /* AppDelegate.swift in Sources */,
+				8331B1572455ECBF00BFC82A /* ProductCellViewModel.swift in Sources */,
 				8331B1442455C23400BFC82A /* FloatingButton.swift in Sources */,
 				8331B1522455D9E200BFC82A /* DefaultProductCell.swift in Sources */,
 				8331B12C2455AE5700BFC82A /* ProductListViewController.swift in Sources */,
@@ -521,6 +536,7 @@
 				8331B1502455D8D400BFC82A /* DefaultProductsSettingsViewController.swift in Sources */,
 				8331B1472455C2F300BFC82A /* Closures.swift in Sources */,
 				8331B12F2455B5C800BFC82A /* ProductDetailsViewController.swift in Sources */,
+				8331B1542455EB1900BFC82A /* ProductCell.swift in Sources */,
 				8331B14A2455C6CA00BFC82A /* ProductsStorage.swift in Sources */,
 				8331B1412455BE5E00BFC82A /* Constants.swift in Sources */,
 			);
