@@ -18,6 +18,8 @@
 		8331B1472455C2F300BFC82A /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B1462455C2F300BFC82A /* Closures.swift */; };
 		8331B14A2455C6CA00BFC82A /* ProductsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B1492455C6CA00BFC82A /* ProductsStorage.swift */; };
 		8331B14D2455C77900BFC82A /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B14C2455C77900BFC82A /* ProductModel.swift */; };
+		8331B1502455D8D400BFC82A /* DefaultProductsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B14F2455D8D400BFC82A /* DefaultProductsSettingsViewController.swift */; };
+		8331B1522455D9E200BFC82A /* DefaultProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B1512455D9E200BFC82A /* DefaultProductCell.swift */; };
 		8365828E2455AC6C0016BB5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8365828D2455AC6C0016BB5F /* AppDelegate.swift */; };
 		836582982455AC6C0016BB5F /* ThrowItAway.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 836582962455AC6C0016BB5F /* ThrowItAway.xcdatamodeld */; };
 		8365829A2455AC6D0016BB5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 836582992455AC6D0016BB5F /* Assets.xcassets */; };
@@ -60,6 +62,8 @@
 		8331B1462455C2F300BFC82A /* Closures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
 		8331B1492455C6CA00BFC82A /* ProductsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsStorage.swift; sourceTree = "<group>"; };
 		8331B14C2455C77900BFC82A /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		8331B14F2455D8D400BFC82A /* DefaultProductsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProductsSettingsViewController.swift; sourceTree = "<group>"; };
+		8331B1512455D9E200BFC82A /* DefaultProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProductCell.swift; sourceTree = "<group>"; };
 		8365828A2455AC6C0016BB5F /* ThrowItAway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThrowItAway.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8365828D2455AC6C0016BB5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		836582972455AC6C0016BB5F /* ThrowItAway.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ThrowItAway.xcdatamodel; sourceTree = "<group>"; };
@@ -172,6 +176,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		8331B14E2455D8B500BFC82A /* DefaultProductsSettings */ = {
+			isa = PBXGroup;
+			children = (
+				8331B14F2455D8D400BFC82A /* DefaultProductsSettingsViewController.swift */,
+				8331B1512455D9E200BFC82A /* DefaultProductCell.swift */,
+			);
+			path = DefaultProductsSettings;
+			sourceTree = "<group>";
+		};
 		836582812455AC6C0016BB5F = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +246,7 @@
 		83B136CA2455AD3C0019515D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8331B14E2455D8B500BFC82A /* DefaultProductsSettings */,
 				83B136CB2455ADAC0019515D /* ProductList */,
 				83B136CC2455ADB30019515D /* ProductDetails */,
 			);
@@ -498,11 +512,13 @@
 				8331B1352455B6FC00BFC82A /* ProductDetailsConfigurator.swift in Sources */,
 				8365828E2455AC6C0016BB5F /* AppDelegate.swift in Sources */,
 				8331B1442455C23400BFC82A /* FloatingButton.swift in Sources */,
+				8331B1522455D9E200BFC82A /* DefaultProductCell.swift in Sources */,
 				8331B12C2455AE5700BFC82A /* ProductListViewController.swift in Sources */,
 				8331B13F2455BD5900BFC82A /* UserDefaults.swift in Sources */,
 				8331B13D2455B9B000BFC82A /* UITableViewCell.swift in Sources */,
 				836582982455AC6C0016BB5F /* ThrowItAway.xcdatamodeld in Sources */,
 				8331B14D2455C77900BFC82A /* ProductModel.swift in Sources */,
+				8331B1502455D8D400BFC82A /* DefaultProductsSettingsViewController.swift in Sources */,
 				8331B1472455C2F300BFC82A /* Closures.swift in Sources */,
 				8331B12F2455B5C800BFC82A /* ProductDetailsViewController.swift in Sources */,
 				8331B14A2455C6CA00BFC82A /* ProductsStorage.swift in Sources */,
@@ -603,7 +619,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -657,7 +673,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

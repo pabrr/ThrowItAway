@@ -69,7 +69,8 @@ private extension ProductListViewController {
 
     @objc
     func showSettings() {
-
+        let viewController = DefaultProductsSettingsViewController()
+        navigationController?.present(viewController, animated: true, completion: nil)
     }
 
 }

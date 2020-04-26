@@ -7,3 +7,7 @@
 //
 
 typealias EmptyClosure = () -> Void
+
+typealias StringClosure = (String) -> Void
+
+typealias Closure<T> = (T) -> Void
