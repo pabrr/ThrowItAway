@@ -10,6 +10,12 @@ import UIKit
 
 final class FloatingButton: UIButton {
 
+    // MARK: - Constants
+
+    private enum Constants {
+        static let defaultWidth: CGFloat = 54
+    }
+
     // MARK: - Properties
 
     var didSelectHandler: EmptyClosure?
@@ -41,11 +47,17 @@ private extension FloatingButton {
 private extension FloatingButton {
 
     func configureUI() {
-        setTitle("+", for: .normal)
-        titleLabel?.font = .systemFont(ofSize: 24)
-        setTitleColor(.systemBlue, for: .normal)
+        setImage(UIImage(systemName: "plus.circle"), for: .normal)
+        imageView?.contentMode = .scaleAspectFit
+        imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        tintColor = .systemBlue
 
         addTarget(self, action: #selector(didSelect), for: .touchUpInside)
+
+        snp.makeConstraints { make in
+            make.width.equalTo(Constants.defaultWidth)
+            make.height.equalTo(Constants.defaultWidth)
+        }
     }
 
 }

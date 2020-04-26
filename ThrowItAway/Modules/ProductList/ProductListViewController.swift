@@ -69,7 +69,8 @@ private extension ProductListViewController {
 
     @objc
     func showSettings() {
-
+        let viewController = DefaultProductsSettingsViewController()
+        navigationController?.present(viewController, animated: true, completion: nil)
     }
 
 }
@@ -92,7 +93,8 @@ private extension ProductListViewController {
     func configureNavigationBar() {
         title = "Что нам выбросить сегодня?"
 
-        let settingsBarItem = UIBarButtonItem(barButtonSystemItem: .compose,
+        let settingsBarItem = UIBarButtonItem(image: UIImage(systemName: "gear"),
+                                              style: .plain,
                                               target: self,
                                               action: #selector(showSettings))
         navigationItem.rightBarButtonItem = settingsBarItem
@@ -115,8 +117,6 @@ private extension ProductListViewController {
         }
         view.addSubview(floatingButton)
         floatingButton.snp.makeConstraints { make in
-            make.height.equalTo(32)
-            make.width.equalTo(32)
             make.right.equalTo(-16)
             make.bottomMargin.equalTo(-16)
         }
