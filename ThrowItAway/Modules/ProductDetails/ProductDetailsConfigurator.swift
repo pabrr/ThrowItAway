@@ -10,7 +10,7 @@ import UIKit
 
 final class ProductDetailsConfigurator {
 
-    func configure(product: Any? = nil) -> UIViewController {
+    func configure(product: ProductModel? = nil) -> UIViewController {
         let viewController = ProductDetailsViewController()
         viewController.product = product
         return viewController

@@ -26,7 +26,7 @@ final class ProductDetailsViewController: UIViewController {
         return datePicker
     }()
 
-    var product: Any?
+    var product: ProductModel?
 
     // MARK: - UIViewController
 
@@ -62,7 +62,8 @@ private extension ProductDetailsViewController {
 
     @objc
     func saveProduct() {
-
+        product == nil ? addNewProduct() : editProduct()
+        navigationController?.popViewController(animated: true)
     }
 
 }
@@ -109,6 +110,18 @@ private extension ProductDetailsViewController {
             make.left.equalToSuperview()
             make.right.equalToSuperview()
         }
+    }
+
+    func addNewProduct() {
+        let selectedProductIndex = productSelector.selectedRow(inComponent: 0)
+        let name = UserDefaults().defaultProducts[selectedProductIndex]
+        let dateTill = datePicker.date
+        let productModel = ProductModel(name: name, dateTill: dateTill)
+        ProductsStorage.shared.save(productModel)
+    }
+
+    func editProduct() {
+
     }
 
 }
