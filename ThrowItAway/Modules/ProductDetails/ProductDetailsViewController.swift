@@ -18,6 +18,14 @@ final class ProductDetailsViewController: UIViewController {
         return tableView
     }()
 
+    var productSelector = UIPickerView()
+    var datePicker: UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.minimumDate = Date()
+        datePicker.datePickerMode = .date
+        return datePicker
+    }()
+
     var product: Any?
 
     // MARK: - UIViewController
@@ -26,6 +34,24 @@ final class ProductDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         configureUI()
+    }
+
+}
+
+// MARK: - UIPickerView
+
+extension ProductDetailsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return UserDefaults().defaultProducts.count
+    }
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return UserDefaults().defaultProducts[row]
     }
 
 }
@@ -46,8 +72,11 @@ private extension ProductDetailsViewController {
 private extension ProductDetailsViewController {
 
     func configureUI() {
+        view.backgroundColor = .white
+
         configureNavigationBar()
         configureTableView()
+        configureView()
     }
 
     func configureNavigationBar() {
@@ -58,9 +87,27 @@ private extension ProductDetailsViewController {
     }
 
     func configureTableView() {
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+//        view.addSubview(tableView)
+//        tableView.snp.makeConstraints { make in
+//            make.edges.equalToSuperview()
+//        }
+    }
+
+    func configureView() {
+        productSelector.dataSource = self
+        productSelector.delegate = self
+        view.addSubview(productSelector)
+        productSelector.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+        }
+
+        view.addSubview(datePicker)
+        datePicker.snp.makeConstraints { make in
+            make.top.equalTo(productSelector.snp.bottom).inset(20)
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
         }
     }
 
