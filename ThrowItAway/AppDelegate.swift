@@ -27,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+        ProductsStorage.shared.loadData()
+
         window = UIWindow(frame: UIScreen.main.bounds)
         let productListViewController = ProductListViewController() as UIViewController
         let navigationController = UINavigationController(rootViewController: productListViewController)

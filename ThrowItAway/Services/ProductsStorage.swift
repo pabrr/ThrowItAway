@@ -19,11 +19,27 @@ final class ProductsStorage {
 
     private var products: [NSManagedObject] = []
 
+    private var managedContext: NSManagedObjectContext? = {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
+        return appDelegate.persistentContainer.viewContext
+    }()
+
     // MARK: - Init
 
     private init() { }
 
     // MARK: - Internal Methods
+
+    func loadData() {
+        guard let managedContext = managedContext else { return }
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Product")
+
+        do {
+            products = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
 
     func getProducts() -> [ProductModel] {
         return products.map { entity in
@@ -38,11 +54,9 @@ final class ProductsStorage {
     }
 
     func save(_ model: ProductModel) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-
-        let managedContext = appDelegate.persistentContainer.viewContext
-
-        guard let entity = NSEntityDescription.entity(forEntityName: "Product", in: managedContext) else { return }
+        guard
+            let managedContext = managedContext,
+            let entity = NSEntityDescription.entity(forEntityName: "Product", in: managedContext) else { return }
 
         let product = NSManagedObject(entity: entity, insertInto: managedContext)
         product.setValue(model.id, forKeyPath: "id")
@@ -52,6 +66,16 @@ final class ProductsStorage {
         do {
             try managedContext.save()
             products.append(product)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+
+    func deleteAll() {
+        guard let managedContext = managedContext else { return }
+        do {
+            try managedContext.save()
+            products.removeAll()
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
