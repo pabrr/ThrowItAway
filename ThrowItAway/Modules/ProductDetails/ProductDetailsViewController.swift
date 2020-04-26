@@ -1,0 +1,114 @@
+//
+//  ProductDetailsViewController.swift
+//  ThrowItAway
+//
+//  Created by Polina Polukhina on 26.04.2020.
+//  Copyright © 2020 Polina Polukhina. All rights reserved.
+//
+
+import SnapKit
+
+final class ProductDetailsViewController: UIViewController {
+
+    // MARK: - Private Properties
+
+    var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.separatorStyle = .none
+        return tableView
+    }()
+
+    var productSelector = UIPickerView()
+    var datePicker: UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.minimumDate = Date()
+        datePicker.datePickerMode = .date
+        return datePicker
+    }()
+
+    var product: Any?
+
+    // MARK: - UIViewController
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        configureUI()
+    }
+
+}
+
+// MARK: - UIPickerView
+
+extension ProductDetailsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return UserDefaults().defaultProducts.count
+    }
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return UserDefaults().defaultProducts[row]
+    }
+
+}
+
+// MARK: - Actions
+
+private extension ProductDetailsViewController {
+
+    @objc
+    func saveProduct() {
+
+    }
+
+}
+
+// MARK: - Private Methods
+
+private extension ProductDetailsViewController {
+
+    func configureUI() {
+        view.backgroundColor = .white
+
+        configureNavigationBar()
+        configureTableView()
+        configureView()
+    }
+
+    func configureNavigationBar() {
+        title = product == nil ? "Добавить продукт" : "Редактирование"
+
+        let rightButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveProduct))
+        navigationItem.rightBarButtonItem = rightButtonItem
+    }
+
+    func configureTableView() {
+//        view.addSubview(tableView)
+//        tableView.snp.makeConstraints { make in
+//            make.edges.equalToSuperview()
+//        }
+    }
+
+    func configureView() {
+        productSelector.dataSource = self
+        productSelector.delegate = self
+        view.addSubview(productSelector)
+        productSelector.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+        }
+
+        view.addSubview(datePicker)
+        datePicker.snp.makeConstraints { make in
+            make.top.equalTo(productSelector.snp.bottom).inset(20)
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+        }
+    }
+
+}

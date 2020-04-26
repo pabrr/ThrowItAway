@@ -32,7 +32,8 @@ private extension ProductListViewController {
 
     @objc
     func addProduct() {
-
+        let viewController = ProductDetailsConfigurator().configure()
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
 }
