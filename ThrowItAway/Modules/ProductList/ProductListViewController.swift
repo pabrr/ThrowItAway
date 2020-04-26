@@ -6,14 +6,58 @@
 //  Copyright © 2020 Polina Polukhina. All rights reserved.
 //
 
-import UIKit
+import SnapKit
 
 final class ProductListViewController: UIViewController {
+
+    var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.separatorStyle = .none
+        return tableView
+    }()
+
+    // MARK: - UIViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .green
+        configureUI()
+    }
+
+}
+
+// MARK: - UI Actions
+
+private extension ProductListViewController {
+
+    @objc
+    func addProduct() {
+
+    }
+
+}
+
+// MARK: - Private Methods
+
+private extension ProductListViewController {
+
+    func configureUI() {
+        configureNavigationBar()
+        configureTableView()
+    }
+
+    func configureNavigationBar() {
+        title = "Что нам выбросить сегодня?"
+
+        let addProductBarItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addProduct))
+        navigationItem.rightBarButtonItem = addProductBarItem
+    }
+
+    func configureTableView() {
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 
 }
