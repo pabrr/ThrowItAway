@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		295940F5A004899068F8882A /* Pods_ThrowItAwayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9614751AFF6EC7D8AC87BF9E /* Pods_ThrowItAwayUITests.framework */; };
 		8331B12C2455AE5700BFC82A /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B12B2455AE5700BFC82A /* ProductListViewController.swift */; };
+		8331B12F2455B5C800BFC82A /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B12E2455B5C800BFC82A /* ProductDetailsViewController.swift */; };
+		8331B1352455B6FC00BFC82A /* ProductDetailsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331B1342455B6FC00BFC82A /* ProductDetailsConfigurator.swift */; };
 		8365828E2455AC6C0016BB5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8365828D2455AC6C0016BB5F /* AppDelegate.swift */; };
 		836582982455AC6C0016BB5F /* ThrowItAway.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 836582962455AC6C0016BB5F /* ThrowItAway.xcdatamodeld */; };
 		8365829A2455AC6D0016BB5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 836582992455AC6D0016BB5F /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		67BBC5101FB8C433116C4D09 /* Pods-ThrowItAway.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThrowItAway.debug.xcconfig"; path = "Target Support Files/Pods-ThrowItAway/Pods-ThrowItAway.debug.xcconfig"; sourceTree = "<group>"; };
 		721D27C387CF4D9F702A945B /* Pods_ThrowItAway.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThrowItAway.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8331B12B2455AE5700BFC82A /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		8331B12E2455B5C800BFC82A /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
+		8331B1342455B6FC00BFC82A /* ProductDetailsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsConfigurator.swift; sourceTree = "<group>"; };
 		8365828A2455AC6C0016BB5F /* ThrowItAway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThrowItAway.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8365828D2455AC6C0016BB5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		836582972455AC6C0016BB5F /* ThrowItAway.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ThrowItAway.xcdatamodel; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 		83B136CC2455ADB30019515D /* ProductDetails */ = {
 			isa = PBXGroup;
 			children = (
+				8331B1342455B6FC00BFC82A /* ProductDetailsConfigurator.swift */,
+				8331B12E2455B5C800BFC82A /* ProductDetailsViewController.swift */,
 			);
 			path = ProductDetails;
 			sourceTree = "<group>";
@@ -428,9 +434,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8331B1352455B6FC00BFC82A /* ProductDetailsConfigurator.swift in Sources */,
 				8365828E2455AC6C0016BB5F /* AppDelegate.swift in Sources */,
 				8331B12C2455AE5700BFC82A /* ProductListViewController.swift in Sources */,
 				836582982455AC6C0016BB5F /* ThrowItAway.xcdatamodeld in Sources */,
+				8331B12F2455B5C800BFC82A /* ProductDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

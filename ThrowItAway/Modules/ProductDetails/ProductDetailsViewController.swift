@@ -1,5 +1,5 @@
 //
-//  ProductListViewController.swift
+//  ProductDetailsViewController.swift
 //  ThrowItAway
 //
 //  Created by Polina Polukhina on 26.04.2020.
@@ -8,13 +8,17 @@
 
 import SnapKit
 
-final class ProductListViewController: UIViewController {
+final class ProductDetailsViewController: UIViewController {
+
+    // MARK: - Private Properties
 
     var tableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none
         return tableView
     }()
+
+    var product: Any?
 
     // MARK: - UIViewController
 
@@ -26,21 +30,20 @@ final class ProductListViewController: UIViewController {
 
 }
 
-// MARK: - UI Actions
+// MARK: - Actions
 
-private extension ProductListViewController {
+private extension ProductDetailsViewController {
 
     @objc
-    func addProduct() {
-        let viewController = ProductDetailsConfigurator().configure()
-        navigationController?.pushViewController(viewController, animated: true)
+    func saveProduct() {
+
     }
 
 }
 
 // MARK: - Private Methods
 
-private extension ProductListViewController {
+private extension ProductDetailsViewController {
 
     func configureUI() {
         configureNavigationBar()
@@ -48,10 +51,10 @@ private extension ProductListViewController {
     }
 
     func configureNavigationBar() {
-        title = "Что нам выбросить сегодня?"
+        title = product == nil ? "Добавить продукт" : "Редактирование"
 
-        let addProductBarItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addProduct))
-        navigationItem.rightBarButtonItem = addProductBarItem
+        let rightButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveProduct))
+        navigationItem.rightBarButtonItem = rightButtonItem
     }
 
     func configureTableView() {
