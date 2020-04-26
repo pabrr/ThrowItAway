@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ProductListViewController.swift
 //  ThrowItAway
 //
 //  Created by Polina Polukhina on 26.04.2020.
@@ -8,13 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ProductListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        view.backgroundColor = .green
     }
 
-
 }
-
