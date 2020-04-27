@@ -1,0 +1,5 @@
+- add product updating(editing)
+- add product deleting
+- new name for product when adding
+- preparation date + days till dateTill
+- tests for counting remaining days
